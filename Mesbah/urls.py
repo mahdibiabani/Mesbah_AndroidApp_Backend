@@ -8,7 +8,8 @@ router = routers.DefaultRouter()
 router.register('podcasts', views.PodcastViewSet, basename='podcast')
 router.register('clips', views.ClipViewSet, basename='clip')
 router.register('news', views.NewsViewSet, basename='news')
-
+router.register('books', views.BookViewSet, basename='books')
+router.register('albums', views.ImageAlbumViewSet, basename='albums')
 
 urlpatterns = router.urls
 

@@ -40,3 +40,37 @@ class News(models.Model):
         return self.title
 
 
+class Book(models.Model):
+    title = models.CharField(max_length=255)
+    description = models.TextField()
+    author = models.CharField(max_length=255)
+    publish_date = models.CharField(max_length=255)
+    image = models.ImageField(upload_to='book/book_cover', blank=True)
+
+    datetime_created = models.DateTimeField(default=timezone.now)
+    datetime_modified = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.title
+    
+
+class ImageAlbum(models.Model):
+    title = models.CharField(max_length=255)   
+    image = models.ImageField(upload_to='album/album_cover', blank=True)
+
+    datetime_created = models.DateTimeField(default=timezone.now)
+    datetime_modified = models.DateTimeField(auto_now=True)
+
+
+    def __str__(self):
+        return self.title
+
+
+
+class Image(models.Model):
+    images = models.ImageField(upload_to="product-images", default="product.jpg")
+    album = models.ForeignKey(ImageAlbum, related_name="images", on_delete=models.SET_NULL, null=True)
+    date_created = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name_plural = "Album Images"
