@@ -29,7 +29,7 @@ class Clip(models.Model):
 
 class News(models.Model):
     title = models.CharField(max_length=500)
-    descripton = models.TextField()
+    description = models.TextField()
     url = models.CharField(max_length=500)
     cover = models.ImageField(upload_to='news/news_cover', blank=True)
     datetime_created = models.DateTimeField(default=timezone.now)

@@ -18,7 +18,7 @@ class ClipAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
 
 @admin.register(News)
 class NewsAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
-    list_display = ['title', 'url', 'cover', 'descripton']
+    list_display = ['title', 'url', 'cover', 'description']
 
 
 class ImageAdmin(admin.TabularInline):
