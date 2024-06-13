@@ -12,6 +12,8 @@ djangorestframework-simplejwt = "*"
 pillow = "*"
 drf-nested-routers = "*"
 djoser = "*"
+django-rosetta = "*"
+django-admin-interface = "*"
 
 [dev-packages]
 

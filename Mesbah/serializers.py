@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from Mesbah.models import Book, Clip, Image, ImageAlbum, News, Podcast
+from Mesbah.models import Auditory, Book, Clip, ContactUs, Image, ImageAlbum, Martyr, News, Podcast
 
 class PodcastSerializer(serializers.ModelSerializer):
     class Meta:
@@ -40,3 +40,19 @@ class ImageAlbumSerializer(serializers.ModelSerializer):
     class Meta:
         model = ImageAlbum
         fields = ['title', 'image', 'images']
+
+
+class MartyrSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Martyr
+        fields = ['name', 'description', 'cover', 'datetime_created']
+
+class AuditorySerializer(serializers.ModelSerializer):
+    class Meta:
+         model = Auditory
+         fields = ['title', 'cover', 'url', 'datetime_created']
+
+class ContactUsSerializer(serializers.ModelSerializer):
+    class Meta:
+         model = ContactUs
+         fields = '__all__'

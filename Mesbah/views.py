@@ -1,9 +1,11 @@
 from django.shortcuts import render
+from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet, ReadOnlyModelViewSet
-
-from Mesbah.models import Book, Clip, ImageAlbum, News, Podcast
+from rest_framework.views import APIView
+from rest_framework import generics
+from Mesbah.models import Auditory, Book, Clip, ContactUs, ImageAlbum, Martyr, News, Podcast
 from Mesbah.permissions import IsAdminOrReadOnly
-from Mesbah.serializers import BookSerializer, ClipSerializer, ImageAlbumSerializer, NewsSerializer, PodcastSerializer 
+from Mesbah.serializers import AuditorySerializer, BookSerializer, ClipSerializer, ContactUsSerializer, ImageAlbumSerializer, MartyrSerializer, NewsSerializer, PodcastSerializer 
 
 
 class PodcastViewSet(ModelViewSet):
@@ -33,3 +35,23 @@ class ImageAlbumViewSet(ModelViewSet):
     serializer_class = ImageAlbumSerializer
     queryset = ImageAlbum.objects.all()
     permission_classes = [IsAdminOrReadOnly]    
+
+class MartyrViewSet(ModelViewSet):
+    serializer_class = MartyrSerializer
+    queryset = Martyr.objects.all()
+    permission_classes = [IsAdminOrReadOnly]
+
+class AuditoryViewSet(ModelViewSet):
+    serializer_class = AuditorySerializer
+    queryset = Auditory.objects.all()    
+    permission_classes = [IsAdminOrReadOnly]
+
+class ContactUsViewSet(ModelViewSet):
+    http_method_names = ['post']
+    serializer_class = ContactUsSerializer
+    queryset = ContactUs.objects.all()
+    
+   
+
+        
+

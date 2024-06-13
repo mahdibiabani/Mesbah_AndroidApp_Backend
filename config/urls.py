@@ -19,10 +19,15 @@ from django.urls import include, path
 from django.conf.urls.static import static
 from config import settings
 
+admin.site.site_header = 'اپلیکیشن مصباح'
+admin.site.index_title = 'مدیریت اپلیکیشن'
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('Mesbah/', include('Mesbah.urls')),
     path("__debug__/", include("debug_toolbar.urls")),
-    path('auth/', include('djoser.urls')),
+    # path('auth/', include('djoser.urls')),
     path('auth/', include('djoser.urls.jwt')),
+    path('rosetta/', include('rosetta.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

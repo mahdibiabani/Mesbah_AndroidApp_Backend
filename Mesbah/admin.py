@@ -1,6 +1,6 @@
 from django.contrib import admin
 from jalali_date.admin import ModelAdminJalaliMixin
-from Mesbah.models import Book, Clip, Image, ImageAlbum, News, Podcast
+from Mesbah.models import Auditory, Book, Clip, ContactUs, Image, ImageAlbum, Martyr, News, Podcast
 
 
 
@@ -34,3 +34,17 @@ class ImageAlbumAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
 class BookAdmin(admin.ModelAdmin):
     list_display = ['title', 'description', 'author', 'publish_date', 'image']
 
+@admin.register(Martyr)
+class MartyrAdmin(admin.ModelAdmin):
+    list_display = ['name', 'description', 'cover', 'datetime_created']
+
+
+@admin.register(Auditory)
+class Auditory(admin.ModelAdmin):
+    list_display = ['title', 'cover', 'url', 'datetime_created']
+
+
+@admin.register(ContactUs)
+class ContactUsAdmin(admin.ModelAdmin):
+    list_display = ['identity', 'subject', 'message', 'datetime_created']
+    readonly_fields = ['identity', 'subject', 'message', 'datetime_created']
